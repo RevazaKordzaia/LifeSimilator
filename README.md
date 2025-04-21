@@ -47,14 +47,48 @@ dotnet run
 ### 📁 Project Structure
 
 ```bash
-LifeSimulator/
-├── Enums/             # Enum types like Job, Nationality, Events
-├── Events/            # Life, Finance, and Social event logic
-├── Models/            # Character, Job, Car models
-├── SaveLoad/          # Save/Load system for persistence
-├── Services/          # Game services and mechanics
-├── Program.cs         # Game loop & main logic
-```
+LifeSimulator/                           # Root folder of the project
+├── Enums/                               # Enum definitions (Job, Nationality, Events)
+│   ├── CarsEnum.cs                      # Enum for car types
+│   ├── EventsEnum.cs                    # Enum for events
+│   ├── JobEnum.cs                       # Enum for job types
+│   ├── NationalityEnum.cs               # Enum for nationalities
+│   ├── OptionsEnum.cs                   # Enum for different options
+│   └── RobberyActionEnum.cs             # Enum for robbery actions
+├── Events/                              # Event logic (Life, Finance, and Social events)
+│   ├── FinanceEvents.cs                 # Finance related events (PayDay, GotRobbed)
+│   ├── HealthEvents.cs                  # Health related events (GotSick, HadAccident)
+│   ├── SocialEvents.cs                  # Social events (DateGirl, AdoptPet, etc.)
+│   └── GenericEvents.cs                 # General event handlers (empty or shared events)
+├── Models/                              # Core game models (Character, Job, Car models)
+│   ├── CarModels/                       # Car-related models
+│   │   ├── Car.cs                       # Model for car (e.g., Car properties)
+│   │   ├── CarOwned.cs                  # Model for ownership of a car
+│   │   └── CarStore.cs                  # Model for handling car purchases
+│   ├── JobModels/                       # Job-related models
+│   │   └── Job.cs                       # Job model (e.g., Job title, salary)
+│   ├── ReusableMethods/                 # Reusable helper methods
+│   │   ├── NumberOptionMethod.cs        # Helper method to handle numeric options
+│   │   └── YesNoResponseMethod.cs       # Helper method for Yes/No responses
+│   └── Common/                          # Common models (shared entities like metadata)
+│       └── MetaData.cs                  # Metadata for the game (e.g., version info)
+├── SaveLoad/                            # Handling game saves and loading game states
+│   ├── GameData.cs                      # Class representing game data (e.g., save info)
+│   └── SaveSystem.cs                    # System to handle saving and loading game states
+├── Services/                            # Game services (game mechanics and features)
+│   ├── CharacterService.cs              # Service for character logic (health, money, etc.)
+│   ├── JobService.cs                    # Service for job logic (e.g., salary, career changes)
+│   └── CarService.cs                    # Service for car-related logic (e.g., buying)
+├── Interfaces/                          # Interface definitions
+│   ├── ICarOwned.cs                     # Interface for car ownership behavior
+│   ├── IJob.cs                          # Interface for job behavior
+│   └── ISaveable.cs                     # Interface for save/load functionality (optional)
+├── .gitignore                           # Git ignore file (to ignore unnecessary files/folders)
+├── LifeSimulator.csproj                 # Project file for .NET
+├── LifeSimulator.sln                    # Solution file for Visual Studio
+├── Program.cs                           # Main game loop and entry point for the game
+└── README.md                            # Documentation for your project
+
 
 ### 💡 Future Improvements
 
