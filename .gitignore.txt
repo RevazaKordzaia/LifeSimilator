@@ -1,12 +1,5 @@
-# Ignore Visual Studio files
 .vs/
-*.user
-*.suo
-
-# Ignore build output
 bin/
 obj/
-
-# Temporary files
-*.tmp
+.idea/
 *.log
